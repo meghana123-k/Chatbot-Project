@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+<!doctype html>
 <html>
   <head>
     <title>React Basics</title>
@@ -11,8 +11,14 @@
 
     <script src="https://unpkg.com/supersimpledev/babel.js"></script>
     <script type="text/babel">
-      const container = document.querySelector('.js-container');
-      ReactDOM.createRoot(container).render('Welcome to SuperSimpleDev React Course');
+      const container = document.querySelector(".js-container");
+      const div = (
+        <div>
+          <button>click me</button>
+          <p>This is a paragraph of text</p>
+        </div>
+      );
+      ReactDOM.createRoot(container).render(div);
     </script>
   </body>
 </html>
