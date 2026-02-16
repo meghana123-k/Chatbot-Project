@@ -12,26 +12,40 @@
     <script src="https://unpkg.com/supersimpledev/dayjs.js"></script>
     <script src="https://unpkg.com/supersimpledev/babel.js"></script>
     <script type="text/babel">
-      function Counter({counter, setCount}) {
-          function saveCounter() {
-              setCount(counter+1);
-            }
-            return <>
-            <button onClick={saveCounter}>Clicked {counter} {counter <= 1 ? 'time' : 'times'}</button>
-            </>;
+      function Counter({ counter, setCount }) {
+        function saveCounter() {
+          setCount(counter + 1);
         }
-        function App() {
-            const [counter, setCount] = React.useState(0);
-            return (
+        return (
           <>
-            <Counter counter = {counter} setCount = {setCount} />
-            <Counter counter = {counter} setCount = {setCount} />
-            
+            <button onClick={saveCounter}>
+              Clicked {counter} {counter <= 1 ? "time" : "times"}
+            </button>
           </>
         );
       }
-      const root = ReactDOM.createRoot(document.querySelector('.js-container'))
-      root.render(<App />)
+      function Reset({counter, setCount}) {
+        function resetCounter() {
+            setCount(0);
+        }
+        return (
+            <>
+                <button onClick={resetCounter}>Reset</button>
+            </>
+        );
+      }
+      function App() {
+        const [counter, setCount] = React.useState(0);
+        return (
+          <>
+            <Counter counter={counter} setCount={setCount} />
+            <Counter counter={counter} setCount={setCount} />
+            <Reset counter={counter} setCount={setCount}/>
+          </>
+        );
+      }
+      const root = ReactDOM.createRoot(document.querySelector(".js-container"));
+      root.render(<App />);
     </script>
   </body>
 </html>
