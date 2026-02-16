@@ -8,17 +8,30 @@
 
     <script src="https://unpkg.com/supersimpledev/react.js"></script>
     <script src="https://unpkg.com/supersimpledev/react-dom.js"></script>
-    
+
     <script src="https://unpkg.com/supersimpledev/chatbot.js"></script>
     <script src="https://unpkg.com/supersimpledev/babel.js"></script>
     <script type="text/babel">
       function ChatInput({ chatMessages, setChatMessages }) {
         const [inputText, setInputText] = React.useState("");
-        function saveInputText(event) {
+        const [isLoading, setIsLoading] = React.useState(false);
+        function handleChange(event) {
           setInputText(event.target.value);
         }
+        function handleKeyDown(event) {
+          if (event.key === "Enter") {
+            sendMessage();
+          } else if (event.key === "Escape") {
+            setInputText('')
+          }
+        }
 
-        function sendMessage() {
+        async function sendMessage() {
+          if (!inputText.trim() || isLoading) return;
+
+          setIsLoading(true);
+
+
           const newChatMessages = [
             ...chatMessages,
             {
@@ -26,11 +39,12 @@
               sender: "user",
               id: crypto.randomUUID(),
             },
-          ]
+          ];
           setChatMessages(newChatMessages);
+          setInputText("");
 
-          const response = Chatbot.getResponse(inputText);
-          
+          const response = await Chatbot.getResponseAsync(inputText);
+
           setChatMessages([
             ...newChatMessages,
             {
@@ -39,18 +53,19 @@
               id: crypto.randomUUID(),
             },
           ]);
-
-          setInputText('')
+          setIsLoading(false);
         }
         return (
           <>
             <input
               placeholder="Send a message to chatbot"
               size="30"
-              onChange={saveInputText}
+              onChange={handleChange}
+              onKeyDown={handleKeyDown}
+              disabled={isLoading}
               value={inputText}
             />
-            <button onClick={sendMessage}>Send</button>
+            <button onClick={sendMessage} disabled={isLoading || !inputText.trim()}>{isLoading ? "Loading..." : "Send"}</button>
           </>
         );
       }
