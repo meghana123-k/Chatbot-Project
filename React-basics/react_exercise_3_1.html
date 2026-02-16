@@ -17,9 +17,19 @@
         function printName(event) {
           setName(event.target.value);
         }
+        function clearName(event) {
+          setName('')
+          event.target.value = ""
+        }
+        function printExample(event) {
+          setName('Alice')
+          event.target.value = ""
+        }
         return (
           <>
-            <input onChange={printName} placeholder="Enter your name" />
+            <input onChange={printName} placeholder="Enter your name" value={name} />
+            <button onClick={clearName}>Reset</button>
+            <button onClick={printExample}>Example</button>
             <p>Hello {name}</p>
           </>
         );
