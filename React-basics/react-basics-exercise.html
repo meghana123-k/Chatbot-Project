@@ -37,7 +37,7 @@
       const clock = document.querySelector('.js-clock')
       const root = ReactDOM.createRoot(clock)
       setInterval(()=> {
-        const paraTime = <p>Today is {dayjs().format('HH:mm:ss')}</p>
+        const paraTime = <p>Current time: {dayjs().format('HH:mm:ss')}</p>
         root.render(paraTime)
       }, 1000);
     </script>
