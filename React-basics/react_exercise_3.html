@@ -12,20 +12,21 @@
     <script src="https://unpkg.com/supersimpledev/dayjs.js"></script>
     <script src="https://unpkg.com/supersimpledev/babel.js"></script>
     <script type="text/babel">
-      function Counter() {
-        const [counter, setCount] = React.useState(0);
-        function saveCounter() {
-            setCount(counter+1);
-        }
-        return <>
+      function Counter({counter, setCount}) {
+          function saveCounter() {
+              setCount(counter+1);
+            }
+            return <>
             <button onClick={saveCounter}>Clicked {counter} {counter <= 1 ? 'time' : 'times'}</button>
-        </>;
-      }
-      function App() {
-        return (
+            </>;
+        }
+        function App() {
+            const [counter, setCount] = React.useState(0);
+            return (
           <>
-            <Counter />
-            <Counter />
+            <Counter counter = {counter} setCount = {setCount} />
+            <Counter counter = {counter} setCount = {setCount} />
+            
           </>
         );
       }
