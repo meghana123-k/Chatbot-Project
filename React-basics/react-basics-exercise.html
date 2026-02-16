@@ -7,6 +7,7 @@
     <div class="js-container"></div>
     <div class="js-product"></div>
     <div class="js-date"></div>
+    <div class="js-clock"></div>
     <script src="https://unpkg.com/supersimpledev/react.js"></script>
     <script src="https://unpkg.com/supersimpledev/react-dom.js"></script>
     <script src="https://unpkg.com/supersimpledev/dayjs.js"></script>
@@ -32,7 +33,13 @@
       const date = document.querySelector('.js-date');
       const para = <p>Today is {dayjs().format('MMMM D')}</p>
       ReactDOM.createRoot(date).render(para);
-
+      
+      const clock = document.querySelector('.js-clock')
+      const root = ReactDOM.createRoot(clock)
+      setInterval(()=> {
+        const paraTime = <p>Today is {dayjs().format('HH:mm:ss')}</p>
+        root.render(paraTime)
+      }, 1000);
     </script>
   </body>
 </html>
