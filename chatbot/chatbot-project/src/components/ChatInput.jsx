@@ -2,7 +2,7 @@
 import { useState } from "react";
 import Chatbot from "../lib/chatbot";
 
-function ChatInput({ chatMessages, setChatMessages }) {
+export function ChatInput({ chatMessages, setChatMessages }) {
   const [inputText, setInputText] = useState("");
   const [isLoading, setIsLoading] = useState(false);
   function handleChange(event) {
@@ -65,4 +65,3 @@ function ChatInput({ chatMessages, setChatMessages }) {
     </div>
   );
 }
-export default ChatInput;
