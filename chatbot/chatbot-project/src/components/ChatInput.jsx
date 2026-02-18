@@ -1,6 +1,6 @@
 import { useState } from "react";
 import Chatbot from "../lib/chatbot";
-
+import './ChatInput.css'
 export default function ChatInput({ chatMessages, setChatMessages }) {
   const [inputText, setInputText] = useState("");
   const [isLoading, setIsLoading] = useState(false);
