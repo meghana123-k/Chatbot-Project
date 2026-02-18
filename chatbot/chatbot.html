@@ -2,66 +2,8 @@
 <html>
   <head>
     <title>Chatbot</title>
+    <link rel="stylesheet" href="chatbot.css">
   </head>
-  <style>
-    body {
-      font-family: Arial;
-      margin-top: 0;
-      margin-bottom: 0;
-    }
-    .send-button {
-      background-color: rgb(71, 71, 238);
-      color: white;
-      padding: 12px 20px;
-      border-radius: 10px;
-      border: none;
-      margin-left: 10px;
-      font-size: 15px;
-      cursor: pointer;
-    }
-    .chat-input {
-      padding: 12px 15px;
-      border-radius: 10px;
-      font-size: 15px;
-      border: 1px solid rgb(88, 87, 87);
-      flex-grow: 1;
-    }
-    .chat-input-container {
-      display: flex;
-      margin-bottom: 60px;
-    }
-    .app-container {
-      max-width: 600px;
-      margin-left: auto;
-      margin-right: auto;
-      height: 100vh;
-      display: flex;
-      flex-direction: column;
-    }
-    .chat-message-user {
-      display: flex;
-      justify-content: end;
-    }
-    .chat-message-robot {
-      display: flex;
-      justify-content: start;
-    }
-    .chat-message-text {
-      background-color: rgb(246, 244, 244);
-      padding: 15px 20px;
-      border-radius: 10px;
-      max-width: 300px;
-    }
-    .chat-message-profile {
-      width: 60px;
-    }
-    .chat-messages-container {
-      flex-grow: 1;
-      margin-top: 20px;
-      overflow: scroll;
-      scrollbar-width: none;
-    }
-  </style>
   <body>
     <div class="js-container"></div>
 
