@@ -2,7 +2,7 @@
 <html>
   <head>
     <title>Chatbot</title>
-    <link rel="stylesheet" href="chatbot.css">
+    <link rel="stylesheet" href="chatbot.css" />
   </head>
   <body>
     <div class="js-container"></div>
@@ -103,41 +103,24 @@
         }, [chatMessages]);
         return (
           <div className="chat-messages-container" ref={chatMessagesRef}>
-            {chatMessages.map((chatMessage) => {
-              return (
-                <ChatMessage
-                  message={chatMessage.message}
-                  sender={chatMessage.sender}
-                  key={chatMessage.id}
-                />
-              );
-            })}
+            {chatMessages.length === 0 ? (
+              <div className="empty-chat">Welcome to the chatbot project! Send a message using the textbox below.</div>
+            ) : (
+              chatMessages.map((chatMessage) => {
+                return (
+                  <ChatMessage
+                    message={chatMessage.message}
+                    sender={chatMessage.sender}
+                    key={chatMessage.id}
+                  />
+                );
+              })
+            )}
           </div>
         );
       }
       function App() {
-        const [chatMessages, setChatMessages] = React.useState([
-          {
-            message: "hello chatbot",
-            sender: "user",
-            id: "id1",
-          },
-          {
-            message: "Hello, How can i help you?",
-            sender: "robot",
-            id: "id2",
-          },
-          {
-            message: "Can you get me todays date",
-            sender: "user",
-            id: "id3",
-          },
-          {
-            message: "Today is February 16",
-            sender: "robot",
-            id: "id4",
-          },
-        ]);
+        const [chatMessages, setChatMessages] = React.useState([]);
         //const [chatMessages, setChatMessages] = array;
         // const chatMessages = array[0]
         // const setChatMessages = array[1]
