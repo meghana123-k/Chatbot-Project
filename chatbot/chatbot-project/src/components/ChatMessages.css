@@ -4,3 +4,8 @@
   overflow: scroll;
   scrollbar-width: none;
 }
+
+.chat-messages-time {
+    padding-top: 10px;
+    color: gray;
+}
