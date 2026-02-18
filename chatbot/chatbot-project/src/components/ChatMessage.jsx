@@ -1,7 +1,7 @@
 import RobotProfileImage from "../assets/robot.webp";
 import UserProfileImage from "../assets/user.avif";
 
-export function ChatMessage({ message, sender }) {
+export default function ChatMessage({ message, sender }) {
   return (
     <div
       className={sender === "user" ? "chat-message-user" : "chat-message-robot"}
