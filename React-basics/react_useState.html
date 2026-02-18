@@ -1,0 +1,55 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>React useState</title>
+    <style>
+      .on-change {
+        background-color: rgb(25, 135, 84);
+        color: white;
+        padding: 10px 20px;
+        border: none;
+        border-radius: 10px;
+        cursor: pointer;
+      }
+      .off-change {
+        background-color: rgb(220, 53, 69);
+        color: white;
+        padding: 10px 20px;
+        border: none;
+        border-radius: 10px;
+        cursor: pointer;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container"></div>
+    <script src="https://unpkg.com/supersimpledev/react.js"></script>
+    <script src="https://unpkg.com/supersimpledev/react-dom.js"></script>
+    <script src="https://unpkg.com/supersimpledev/dayjs.js"></script>
+    <script src="https://unpkg.com/supersimpledev/babel.js"></script>
+    <script type="text/babel">
+      function ButtonChange() {
+        const [change, setChange] = React.useState(true);
+        function BtnChange() {
+          setChange(!change);
+        }
+        return(
+          <>
+          <button className={change ? "on-change" : "off-change"} onClick={BtnChange}>{change ? "ON" : "OFF"}</button>
+          </>
+        );
+      }
+      function App() {
+        return (
+          <>
+            <ButtonChange />
+          </>
+        );
+      }
+      const root = ReactDOM.createRoot(document.querySelector(".container"));
+      root.render(<App />);
+    </script>
+  </body>
+</html>
