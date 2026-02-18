@@ -1,5 +1,5 @@
-import RobotProfileImage from "./assets/robot.webp";
-import UserProfileImage from "./assets/user.avif";
+import RobotProfileImage from "../assets/robot.webp";
+import UserProfileImage from "../assets/user.avif";
 
 export function ChatMessage({ message, sender }) {
   return (
