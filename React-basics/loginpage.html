@@ -1,0 +1,140 @@
+<!doctype html>
+<html>
+  <head>
+    <title>Login Page</title>
+    <style>
+      /* ===== Container ===== */
+      .auth-container {
+        height: 100vh;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        background-color: #f4f6f8;
+      }
+
+      /* ===== Form Box ===== */
+      .auth-form {
+        width: 320px;
+        padding: 30px;
+        background-color: #ffffff;
+        border-radius: 12px;
+        box-shadow: 0 8px 20px rgba(0, 0, 0, 0.08);
+      }
+
+      /* ===== Input Group ===== */
+      .form-group {
+        margin-bottom: 20px;
+      }
+
+      /* ===== Input Field ===== */
+      .form-input {
+        width: 100%;
+        padding: 12px;
+        border-radius: 8px;
+        border: 1px solid #ccc;
+        font-size: 14px;
+        transition: border 0.2s ease;
+      }
+
+      .form-input:focus {
+        outline: none;
+        border-color: #4f46e5;
+      }
+
+      /* ===== Buttons ===== */
+      .button-group {
+        display: flex;
+        justify-content: space-between;
+        gap: 10px;
+      }
+
+      .btn {
+        flex: 1;
+        padding: 12px;
+        border-radius: 8px;
+        border: none;
+        font-weight: 600;
+        cursor: pointer;
+        transition: 0.2s ease;
+      }
+
+      .btn-primary {
+        background-color: #4f46e5;
+        color: white;
+      }
+
+      .btn-primary:hover {
+        background-color: #4338ca;
+      }
+
+      .btn-secondary {
+        background-color: #e5e7eb;
+        color: #111;
+      }
+
+      .btn-secondary:hover {
+        background-color: #d1d5db;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="js-container"></div>
+    <script src="https://unpkg.com/supersimpledev/react.js"></script>
+    <script src="https://unpkg.com/supersimpledev/react-dom.js"></script>
+    <script src="https://unpkg.com/supersimpledev/dayjs.js"></script>
+    <script src="https://unpkg.com/supersimpledev/babel.js"></script>
+    <script type="text/babel">
+      function LoginForm() {
+        const [showPassword, setShowPassword] = React.useState(false);
+        function showHidePassword() {
+          setShowPassword(!showPassword);
+        }
+        return (
+          <>
+            <div className="auth-container">
+              <div className="auth-form">
+                <div className="form-group">
+                  <input
+                    type="email"
+                    placeholder="Email"
+                    className="form-input"
+                  />
+                </div>
+
+                <div className="form-group">
+                  <input
+                    type={showPassword ? "text" : "password"}
+                    placeholder="Password"
+                    className="form-input"
+                  />
+                  <button
+                    className="show-hide-btn"
+                    onClick={showHidePassword}
+                    className=""
+                  >
+                    {!showPassword ? "Show" : "Hide"}
+                  </button>
+                </div>
+
+                <div className="button-group">
+                  <button className="btn btn-primary">Login</button>
+                  <button className="btn btn-secondary">Sign Up</button>
+                </div>
+              </div>
+            </div>
+          </>
+        );
+      }
+      function App() {
+        return (
+          <>
+            <LoginForm />
+          </>
+        );
+      }
+
+      const root = ReactDOM.createRoot(document.querySelector(".js-container"));
+      root.render(<App />);
+    </script>
+  </body>
+</html>
