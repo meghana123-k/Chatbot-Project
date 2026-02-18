@@ -65,3 +65,4 @@ function ChatInput({ chatMessages, setChatMessages }) {
     </div>
   );
 }
+export default ChatInput;

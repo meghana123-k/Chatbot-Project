@@ -1,5 +1,4 @@
 import { useState, useEffect, useRef } from "react";
-import Chatbot from "./lib/chatbot";
 import RobotProfileImage from "./assets/robot.webp"
 import UserProfileImage from "./assets/user.avif"
 import "./App.css";
