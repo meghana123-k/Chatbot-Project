@@ -1,6 +1,6 @@
 import { useState } from "react";
 import Chatbot from "../lib/chatbot";
-import './ChatInput.css'
+import "./ChatInput.css";
 export default function ChatInput({ chatMessages, setChatMessages }) {
   const [inputText, setInputText] = useState("");
   const [isLoading, setIsLoading] = useState(false);
@@ -61,6 +61,7 @@ export default function ChatInput({ chatMessages, setChatMessages }) {
       >
         {isLoading ? "Loading..." : "Send"}
       </button>
+      <button onClick={() => setChatMessages([])} className="reset-button">Reset</button>
     </div>
   );
 }

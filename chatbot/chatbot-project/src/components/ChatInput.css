@@ -9,3 +9,22 @@
   display: flex;
   margin-bottom: 60px;
 }
+.send-button {
+  background-color: rgb(71, 71, 238);
+  color: white;
+  padding: 12px 20px;
+  border-radius: 10px;
+  border: none;
+  margin-left: 10px;
+  font-size: 15px;
+  cursor: pointer;
+}
+.reset-button {
+  background-color: rgb(218, 216, 216);
+  padding: 12px 20px;
+  border-radius: 10px;
+  border: none;
+  margin-left: 10px;
+  font-size: 15px;
+  cursor: pointer;
+}
