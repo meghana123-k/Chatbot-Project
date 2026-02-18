@@ -7,7 +7,7 @@ function App() {
   const [chatMessages, setChatMessages] = useState([]);
   return (
     <div className="app-container">
-      <ChatMessages cPhatMessages={chatMessages} />
+      <ChatMessages chatMessages={chatMessages} />
       <ChatInput
         chatMessages={chatMessages}
         setChatMessages={setChatMessages}
