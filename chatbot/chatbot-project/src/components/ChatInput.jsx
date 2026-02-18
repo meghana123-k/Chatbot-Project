@@ -1,10 +1,8 @@
 
 import { useState } from "react";
 import Chatbot from "../lib/chatbot";
-import { ChatMessage } from "./ChatMessage";
-import { ChatMessages } from "./ChatMessages";
 
-export function ChatInput({ chatMessages, setChatMessages }) {
+export default function ChatInput({ chatMessages, setChatMessages }) {
   const [inputText, setInputText] = useState("");
   const [isLoading, setIsLoading] = useState(false);
   function handleChange(event) {
