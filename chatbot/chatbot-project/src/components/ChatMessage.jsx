@@ -1,6 +1,6 @@
 import RobotProfileImage from "../assets/robot.webp";
 import UserProfileImage from "../assets/user.avif";
-
+import './ChatMessage.css';
 export default function ChatMessage({ message, sender }) {
   return (
     <div
