@@ -1,4 +1,5 @@
 import { useState, useEffect, useRef } from "react";
+import ChatInput from "./components/ChatInput";
 import RobotProfileImage from "./assets/robot.webp"
 import UserProfileImage from "./assets/user.avif"
 import "./App.css";
