@@ -76,7 +76,7 @@ function ChatMessage({ message, sender }) {
       )}
       <div className="chat-message-text">{message}</div>
       {sender === "user" && (
-        <img src="images\user.avif" className="chat-message-profile" />
+        <img src={UserProfileImage} className="chat-message-profile" />
       )}
     </div>
   );
