@@ -1,6 +1,6 @@
 
 import { useState } from "react";
-import Chatbot from "./lib/chatbot";
+import Chatbot from "../lib/chatbot";
 
 function ChatInput({ chatMessages, setChatMessages }) {
   const [inputText, setInputText] = useState("");
