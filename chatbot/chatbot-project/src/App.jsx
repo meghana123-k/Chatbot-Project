@@ -1,5 +1,7 @@
 import { useState, useEffect, useRef } from "react";
 import Chatbot from "./lib/chatbot";
+import RobotProfileImage from "./assets/robot.webp"
+import UserProfileImage from "./assets/user.avif"
 import "./App.css";
 function ChatInput({ chatMessages, setChatMessages }) {
   const [inputText, setInputText] = useState("");
@@ -70,7 +72,7 @@ function ChatMessage({ message, sender }) {
       className={sender === "user" ? "chat-message-user" : "chat-message-robot"}
     >
       {sender === "robot" && (
-        <img src="images\robot.webp" className="chat-message-profile" />
+        <img src={RobotProfileImage} className="chat-message-profile" />
       )}
       <div className="chat-message-text">{message}</div>
       {sender === "user" && (
