@@ -1,0 +1,54 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <div id="root"></div>
+    <script src="https://unpkg.com/react@18/umd/react.development.js"></script>
+    <script src="https://unpkg.com/react-dom@18/umd/react-dom.development.js"></script>
+    <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+    <script type="text/babel">
+      const { useState, useEffect, useRef } = React;
+      function App() {
+        const [count, setCount] = useState(0);
+        const [name, setName] = useState("");
+        function handleClick() {
+          setCount((prev) => prev + 1);
+        }
+        useEffect(() => {
+            const interval = setInterval(() => {
+                setCount(prev => prev + 1);
+            }, 1000);
+            return () => clearInterval(interval); // Cleanup function to clear the interval when the component unmounts
+        }, []);
+        const inputRef = useRef();
+
+        const handleSubmit = (e) => {
+          e.preventDefault();
+          alert(inputRef.current.value);
+        };
+        return (
+          <>
+            <div>
+              <p>Count: {count}</p>
+              <button onClick={handleClick}>Increment</button>
+              <input
+                value={name}
+                onChange={(event) => setName(event.target.value)}
+              />
+              <p>Name: {name}</p>
+            </div>
+            <form onSubmit={handleSubmit}>
+              <input type="text" ref={inputRef} placeholder="Enter name" />
+              <button type="submit">Submit</button>
+            </form>
+          </>
+        );
+      }
+      ReactDOM.createRoot(document.getElementById("root")).render(<App />);
+    </script>
+  </body>
+</html>
