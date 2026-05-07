@@ -39,5 +39,7 @@ build/**
 *.swp
 *.swo
 Thumbs.db
-# Ignore all files in HabitTracker folder
-HabitTracker/*
+
+
+# Ignore the HabitTracker directory
+HabitTracker/
